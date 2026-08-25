@@ -1,3 +1,3 @@
-import { Type } from 'class-transformer'; import { ArrayMinSize, IsArray, IsInt, IsOptional, IsPositive, IsString, ValidateNested } from 'class-validator';
-export class SaleLineDto { @Type(()=>Number) @IsInt() @IsPositive() productoId:number; @Type(()=>Number) @IsInt() @IsPositive() cantidad:number; }
-export class CreateSaleDto { @IsOptional() @Type(()=>Number) @IsInt() @IsPositive() clienteId?:number; @IsArray() @ArrayMinSize(1) @ValidateNested({each:true}) @Type(()=>SaleLineDto) productos:SaleLineDto[]; @IsOptional() @IsString() observaciones?:string; }
+import { Type } from 'class-transformer'; import { ArrayMinSize, IsArray, IsInt, IsOptional, IsPositive, IsString, ValidateNested } from 'class-validator'; import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+export class SaleLineDto { @ApiProperty() @Type(()=>Number) @IsInt() @IsPositive() productoId:number; @ApiProperty({example:8}) @Type(()=>Number) @IsInt() @IsPositive() cantidad:number; }
+export class CreateSaleDto { @ApiPropertyOptional() @IsOptional() @Type(()=>Number) @IsInt() @IsPositive() clienteId?:number; @ApiProperty({type:[SaleLineDto]}) @IsArray() @ArrayMinSize(1) @ValidateNested({each:true}) @Type(()=>SaleLineDto) productos:SaleLineDto[]; @ApiPropertyOptional() @IsOptional() @IsString() observaciones?:string; }

@@ -1,2 +1,3 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BadRequestException } from '@nestjs/common'; import { InventoryService } from '../src/inventory/inventory.service'; import { InventoryMovementType } from '../src/common/enums/domain.enums';
 describe('InventoryService',()=>{it('rechaza stock negativo',async()=>{const manager:any={findOne:jest.fn().mockResolvedValue({id:1,stockActual:1}),save:jest.fn()};const ds:any={manager};const service=new InventoryService(ds,{} as any,{} as any,{} as any);await expect(service.change(1,-2,InventoryMovementType.VENTA,1,undefined,undefined,undefined,manager)).rejects.toBeInstanceOf(BadRequestException);});});
