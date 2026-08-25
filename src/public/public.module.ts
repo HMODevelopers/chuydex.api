@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common'; import { TypeOrmModule } from '@nestjs/typeorm'; import { BusinessConfig, Product, Promotion } from '../database/entities'; import { PublicController } from './public.controller'; @Module({imports:[TypeOrmModule.forFeature([Product,Promotion,BusinessConfig])],controllers:[PublicController]}) export class PublicModule {}

@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common'; import { TypeOrmModule } from '@nestjs/typeorm'; import { BusinessConfig } from '../database/entities'; import { SettingsController } from './settings.controller'; @Module({imports:[TypeOrmModule.forFeature([BusinessConfig])],controllers:[SettingsController]}) export class SettingsModule {}

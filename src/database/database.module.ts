@@ -1,0 +1,2 @@
+import { Global, Module } from '@nestjs/common'; import { TypeOrmModule } from '@nestjs/typeorm'; import { ConfigService } from '@nestjs/config';
+@Global() @Module({imports:[TypeOrmModule.forRootAsync({inject:[ConfigService],useFactory:(c:ConfigService)=>({type:'mysql',host:c.getOrThrow('DB_HOST'),port:Number(c.getOrThrow('DB_PORT')),username:c.getOrThrow('DB_USER'),password:c.getOrThrow('DB_PASSWORD'),database:c.getOrThrow('DB_NAME'),autoLoadEntities:true,synchronize:false,charset:'utf8mb4'})})],exports:[TypeOrmModule]}) export class DatabaseModule {}

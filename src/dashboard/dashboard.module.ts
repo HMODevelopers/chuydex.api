@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common'; import { TypeOrmModule } from '@nestjs/typeorm'; import { Product, Promotion, Reward, Sale } from '../database/entities'; import { DashboardController } from './dashboard.controller'; @Module({imports:[TypeOrmModule.forFeature([Sale,Product,Promotion,Reward])],controllers:[DashboardController]}) export class DashboardModule {}
