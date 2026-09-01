@@ -1,1 +1,1 @@
-export * from './security.entities'; export * from './catalog.entities'; export * from './sales.entities'; export * from './promotion.entities'; export * from './audit.entity';
+export * from './security.entities'; export * from './catalog.entities'; export * from './sales.entities'; export * from './promotion.entities'; export * from './audit.entity'; export * from './business.entities';
