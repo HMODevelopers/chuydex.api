@@ -45,6 +45,7 @@ export class Customer extends SoftDeleteEntity {
   @Column({ nullable: true, length: 150 }) email?: string;
   @Column({ type: 'text', nullable: true }) notas?: string;
   @Column({ default: true }) activo: boolean;
+  @Column({ name: 'saldo_actual', type: 'decimal', precision: 12, scale: 2, default: 0 }) saldoActual: string;
 }
 
 @Entity('configuracion')
