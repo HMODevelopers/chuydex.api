@@ -7,7 +7,6 @@ import { AuditModule } from './audit/audit.module';
 import { AuthModule } from './auth/auth.module';
 import { BusinessesModule } from './businesses/businesses.module';
 import { CatalogAdminModule } from './catalog/catalog.module';
-import { TenantModule } from './common/tenant/tenant.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { DatabaseModule } from './database/database.module';
 import { HealthController } from './health.controller';
@@ -19,4 +18,4 @@ import { SalesModule } from './sales/sales.module';
 import { SettingsModule } from './settings/settings.module';
 import { StorageModule } from './storage/storage.module';
 import { UsersModule } from './users/users.module';
-@Module({imports:[ConfigModule.forRoot({isGlobal:true,validationSchema:Joi.object({NODE_ENV:Joi.string().valid('development','test','production').default('development'),PORT:Joi.number().port().default(3000),DB_HOST:Joi.string().required(),DB_PORT:Joi.number().port().default(3306),DB_NAME:Joi.string().required(),DB_USER:Joi.string().required(),DB_PASSWORD:Joi.string().allow('').required(),JWT_ACCESS_SECRET:Joi.string().min(32).required(),JWT_ACCESS_EXPIRATION:Joi.string().default('15m'),JWT_REFRESH_SECRET:Joi.string().min(32).required(),JWT_REFRESH_EXPIRATION:Joi.string().default('7d'),BCRYPT_ROUNDS:Joi.number().min(10).max(15).default(12),CORS_ORIGIN:Joi.string().default('*')})}),ThrottlerModule.forRoot([{ttl:60000,limit:100}]),DatabaseModule,TenantModule,AuditModule,AuthModule,CatalogAdminModule,InventoryModule,PromotionsModule,SalesModule,AccountsModule,StorageModule,UsersModule,RolesModule,PublicModule,SettingsModule,DashboardModule,BusinessesModule],controllers:[HealthController]}) export class AppModule{}
+@Module({imports:[ConfigModule.forRoot({isGlobal:true,validationSchema:Joi.object({NODE_ENV:Joi.string().valid('development','test','production').default('development'),PORT:Joi.number().port().default(3000),DB_HOST:Joi.string().required(),DB_PORT:Joi.number().port().default(3306),DB_NAME:Joi.string().required(),DB_USER:Joi.string().required(),DB_PASSWORD:Joi.string().allow('').required(),JWT_ACCESS_SECRET:Joi.string().min(32).required(),JWT_ACCESS_EXPIRATION:Joi.string().default('15m'),JWT_REFRESH_SECRET:Joi.string().min(32).required(),JWT_REFRESH_EXPIRATION:Joi.string().default('7d'),BCRYPT_ROUNDS:Joi.number().min(10).max(15).default(12),CORS_ORIGIN:Joi.string().default('*')})}),ThrottlerModule.forRoot([{ttl:60000,limit:100}]),DatabaseModule,AuditModule,AuthModule,CatalogAdminModule,InventoryModule,PromotionsModule,SalesModule,AccountsModule,StorageModule,UsersModule,RolesModule,PublicModule,SettingsModule,DashboardModule,BusinessesModule],controllers:[HealthController]}) export class AppModule{}
